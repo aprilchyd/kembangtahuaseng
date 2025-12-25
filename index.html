@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kembang Tahu Aseng - Cita Rasa Pontianak</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary: #D90429; /* Merah Jahe */
+            --primary-dark: #8D0801;
+            --secondary: #EDF2F4; 
+            --accent: #2B2D42; 
+            --highlight: #EF233C; 
+            --gold: #FFBA08;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 60px rgba(217, 4, 41, 0.15);
+            --radius: 24px;
+        }
+
+        /* --- RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--secondary);
+            color: var(--accent);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links { display: flex; gap: 30px; }
+        
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--accent);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 90vh; /* Sedikit dipendekkan biar menu cepat kelihatan */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            background: radial-gradient(circle at top right, #ffe5e5 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, #e0f2f1 0%, transparent 40%);
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .hero-text h1 span { color: var(--primary); }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .cta-group { display: flex; gap: 20px; }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(217, 4, 41, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(217, 4, 41, 0.4);
+        }
+
+        .hero-image { position: relative; }
+
+        .hero-img-main {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-hover);
+            transform: rotate(-3deg);
+            transition: transform 0.5s;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-img-bg {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            border-radius: var(--radius);
+            opacity: 0.2;
+            z-index: 1;
+            transform: rotate(3deg);
+        }
+
+        .hero-image:hover .hero-img-main { transform: rotate(0deg) scale(1.02); }
+
+        /* --- FEATURES --- */
+        .features {
+            padding: 50px 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* --- REVISED MENU SECTION --- */
+        .menu-section {
+            padding: 80px 5%;
+            max-width: 1300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Menu Filter Tabs */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: #f8f9fa;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            border: 1px solid transparent;
+        }
+
+        .tab-btn:hover {
+            background: #eee;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(217, 4, 41, 0.3);
+        }
+
+        /* Menu Grid System */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Responsif otomatis */
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            animation: fadeIn 0.5s ease-in-out;
+            display: none; /* Default hidden untuk filter */
+        }
+        
+        .menu-card.show { display: block; } /* Class untuk menampilkan */
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+
+        .menu-img-wrap {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background: #f0f0f0;
+        }
+
+        .menu-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .menu-card:hover .menu-img-wrap img { transform: scale(1.1); }
+
+        .menu-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .menu-info { padding: 20px; }
+
+        .menu-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--accent);
+            line-height: 1.3;
+        }
+
+        .menu-info p { color: #888; font-size: 0.85rem; margin-bottom: 15px; }
+
+        .menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price { font-weight: 800; color: var(--primary); font-size: 1.1rem; }
+        
+        .cat-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: #eee;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* --- REVIEWS --- */
+        .reviews-section {
+            background: #fff;
+            padding: 80px 5%;
+            position: relative;
+        }
+
+        .slider-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .slides-wrapper { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; padding: 20px; box-sizing: border-box; }
+
+        .review-card-modern {
+            background: var(--secondary);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .review-content {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .reviewer-info {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            background: #ddd;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .reviewer-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: var(--shadow-soft);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+        .slider-btn:hover { background: var(--primary); color: white; }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        /* --- CTA --- */
+        .cta-section {
+            padding: 80px 5%;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .btn-outline:hover { background: white; color: var(--primary); }
+
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .btn-wa:hover { background: #1ebc57; transform: scale(1.05); }
+
+        footer {
+            background: var(--accent);
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-img-main { transform: rotate(0); height: 300px; margin-top: 30px; }
+            .hero-img-bg { display: none; }
+            .cta-group { justify-content: center; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            h1 { font-size: 2.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-logo">KEMBANG TAHU SPESIAL ASENG<span style="color:var(--accent);">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reviews">Ulasan</a></li>
+            <li><a href="https://maps.app.goo.gl/WqWrLaVk71GP8k1r6" target="_blank">Lokasi <i class="fas fa-external-link-alt" style="font-size: 0.7em;"></i></a></li>
+        </ul>
+        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>Khas Pontianak<br><span>Di Hati Depok</span></h1>
+                <p>Nikmati 27+ varian menu yang bikin candu. Kembang Tahu, Susu Kedelai, dan Puding premium.</p>
+                <div class="cta-group">
+                    <a href="https://gofood.co.id/jakarta/restaurant/kembang-tahu-aseng-margonda-570ae2a6-4b88-4ff2-b691-d980e0d3a435?as=gmaps" target="_blank" class="btn-primary">
+                        Pesan GoFood <i class="fas fa-motorcycle"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-img-bg"></div>
+                <img src="https://picsum.photos/seed/kembangtahupontianak/600/600" alt="Kembang Tahu" class="hero-img-main">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-wheelchair"></i></div>
+                <h3>Akses Ramah</h3>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-moon"></i></div>
+                <h3>Larut Malam</h3>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                <h3>Halal & Sehat</h3>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Drive-Thru</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION (REVISED) -->
+    <section class="menu-section" id="menu">
+        <div class="section-header">
+            <h2>Menu Lengkap</h2>
+            <p>Pilih kategori menu favoritmu di bawah ini</p>
+        </div>
+
+        <!-- Menu Filter Tabs -->
+        <div class="menu-tabs">
+            <button class="tab-btn active" onclick="filterMenu('all')">Semua Menu</button>
+            <button class="tab-btn" onclick="filterMenu('kembang-tahu')">Kembang Tahu (14)</button>
+            <button class="tab-btn" onclick="filterMenu('susu')">Susu Kedelai (6)</button>
+            <button class="tab-btn" onclick="filterMenu('puding')">Puding (7)</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- KEMBANG TAHU (14 Items) -->
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <span class="menu-badge">Best Seller</span>
+                    <img src="https://picsum.photos/seed/tahujahe/400/300" alt="Original Jahe">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Original Jahe</h3>
+                    <p>Kuah jahe hangat pas banget pas cuaca dingin.</p>
+                    <div class="menu-footer"><span class="price">Rp 15.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahupolos/400/300" alt="Original Polos">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Original Tanpa Jahe</h3>
+                    <p>Pilihan manis untuk yang tidak suka pedas.</p>
+                    <div class="menu-footer"><span class="price">Rp 15.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahususukeju/400/300" alt="Susu Keju">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Susu Keju</h3>
+                    <p>Kombinasi susu manis dan keju melimpah.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahucoklat/400/300" alt="Coklat">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Coklat</h3>
+                    <p>Tahu lembut dengan siraman saus coklat premium.</p>
+                    <div class="menu-footer"><span class="price">Rp 17.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahualpukat/400/300" alt="Alpukat">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Alpukat</h3>
+                    <p>Sensasi creamy alpukat segar di mulut.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahustrawberry/400/300" alt="Strawberry">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Strawberry</h3>
+                    <p>Rasa segar buah stroberi yang manis asam.</p>
+                    <div class="menu-footer"><span class="price">Rp 17.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahutaro/400/300" alt="Taro">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Taro</h3>
+                    <p>Aroma ungu khas taro yang lembut.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahuthaitea/400/300" alt="Thai Tea">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Thai Tea</h3>
+                    <p>Rasa teh thai yang kental dan manis.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahumatcha/400/300" alt="Matcha">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Matcha</h3>
+                    <p>Cita rasa teh hijau Jepang yang autentik.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahuoreo/400/300" alt="Oreo">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Oreo</h3>
+                    <p>Remahan oreo renyah di atas tahu lembut.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahuredvelvet/400/300" alt="Red Velvet">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Red Velvet</h3>
+                    <p>Rasa cake manis dengan tekstur lembut.</p>
+                    <div class="menu-footer"><span class="price">Rp 19.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahumangga/400/300" alt="Mangga">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Mangga</h3>
+                    <p>Kesegaran buah mangga harum manis.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahuklepon/400/300" alt="Klepon">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Klepon</h3>
+                    <p>Rasa jajanan tradisional gula merah.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="kembang-tahu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/tahububble/400/300" alt="Bubble">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Kembang Tahu</span>
+                    <h3>Bubble / Pearl</h3>
+                    <p>Topping pearl kenyal yang bikin kenyang.</p>
+                    <div class="menu-footer"><span class="price">Rp 18.000</span></div>
+                </div>
+            </div>
+
+
+            <!-- SUSU KEDELAI (6 Items) -->
+            <div class="menu-card show" data-category="susu">
+                <div class="menu-img-wrap">
+                    <span class="menu-badge">Sehat</span>
+                    <img src="https://picsum.photos/seed/susuoriginal/400/300" alt="Susu Original">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Susu Kedelai</span>
+                    <h3>Susu Original</h3>
+                    <p>Kedelai murni tanpa tambahan gula.</p>
+                    <div class="menu-footer"><span class="price">Rp 10.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="susu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/susujahe/400/300" alt="Susu Jahe">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Susu Kedelai</span>
+                    <h3>Susu Jahe</h3>
+                    <p>Hangat dan baik untuk tubuh.</p>
+                    <div class="menu-footer"><span class="price">Rp 12.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="susu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/susucoklat/400/300" alt="Susu Coklat">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Susu Kedelai</span>
+                    <h3>Susu Coklat</h3>
+                    <p>Perpaduan sehat kedelai dan coklat.</p>
+                    <div class="menu-footer"><span class="price">Rp 13.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="susu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/sumatcha/400/300" alt="Susu Matcha">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Susu Kedelai</span>
+                    <h3>Susu Matcha</h3>
+                    <p>Antioksidan tinggi dari teh hijau.</p>
+                    <div class="menu-footer"><span class="price">Rp 14.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="susu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/susutaro/400/300" alt="Susu Taro">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Susu Kedelai</span>
+                    <h3>Susu Taro</h3>
+                    <p>Aroma taru yang harum dan lembut.</p>
+                    <div class="menu-footer"><span class="price">Rp 14.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="susu">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/susuoreo/400/300" alt="Susu Oreo">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Susu Kedelai</span>
+                    <h3>Susu Oreo</h3>
+                    <p>Segar dengan topping oreo.</p>
+                    <div class="menu-footer"><span class="price">Rp 14.000</span></div>
+                </div>
+            </div>
+
+
+            <!-- PUDING (7 Items) -->
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/pudingcoklat/400/300" alt="Puding Coklat">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Coklat</h3>
+                    <p>Puding coklat leleh yang lumer.</p>
+                    <div class="menu-footer"><span class="price">Rp 8.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/pudingcokoreo/400/300" alt="Coklat Oreo">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Coklat Oreo</h3>
+                    <p>Dua rasa favorit dalam satu gigitan.</p>
+                    <div class="menu-footer"><span class="price">Rp 10.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/pudingsusujelly/400/300" alt="Susu Jelly">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Susu Jelly</h3>
+                    <p>Puding susu kenyal dengan vla susu.</p>
+                    <div class="menu-footer"><span class="price">Rp 9.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/pudingoreosusu/400/300" alt="Oreo Susu">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Oreo Susu</h3>
+                    <p>Vla susu creamy dengan topping oreo.</p>
+                    <div class="menu-footer"><span class="price">Rp 10.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <span class="menu-badge">Premium</span>
+                    <img src="https://picsum.photos/seed/pudinggreentea/400/300" alt="Greentea Tiramisu">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Greentea Tiramisu</h3>
+                    <p>Rasa unik tiramisu dengan sentuhan matcha.</p>
+                    <div class="menu-footer"><span class="price">Rp 12.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/pudingtaro/400/300" alt="Puding Taro">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Taro</h3>
+                    <p>Puding taro lembut aroma kuat.</p>
+                    <div class="menu-footer"><span class="price">Rp 9.000</span></div>
+                </div>
+            </div>
+
+            <div class="menu-card show" data-category="puding">
+                <div class="menu-img-wrap">
+                    <img src="https://picsum.photos/seed/pudingalpukat/400/300" alt="Puding Alpukat">
+                </div>
+                <div class="menu-info">
+                    <span class="cat-label">Puding</span>
+                    <h3>Alpukat</h3>
+                    <p>Puding alpukat segar creamy.</p>
+                    <div class="menu-footer"><span class="price">Rp 10.000</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-header">
+            <h2>Kata Mereka</h2>
+            <p>Apa kata pelanggan setia Kembang Tahu Aseng</p>
+        </div>
+
+        <div class="slider-container">
+            <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            
+            <div class="slides-wrapper" id="slidesWrapper">
+                <!-- Slides will be injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Laper? Pesan Sekarang!</h2>
+        <p>Kami melayani dine-in, bawa pulang, dan pesan antar.</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/6285890360806" target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i> WhatsApp Admin
+            </a>
+            <a href="https://maps.app.goo.gl/WqWrLaVk71GP8k1r6" target="_blank" class="btn-outline">
+                <i class="fas fa-map-marker-alt"></i> Petunjuk Arah
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Kembang Tahu Spesial Aseng. Pontianak Heritage in Depok.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // --- MENU FILTER LOGIC ---
+        function filterMenu(category) {
+            const cards = document.querySelectorAll('.menu-card');
+            const buttons = document.querySelectorAll('.tab-btn');
+
+            // Update Button Styles
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase().includes(category) || (category === 'all' && btn.textContent.includes('Semua'))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter Cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.classList.add('show');
+                    // Reset animation
+                    card.style.animation = 'none';
+                    card.offsetHeight; /* trigger reflow */
+                    card.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    if (card.getAttribute('data-category') === category) {
+                        card.classList.add('show');
+                        card.style.animation = 'none';
+                        card.offsetHeight; 
+                        card.style.animation = 'fadeIn 0.5s ease-in-out';
+                    } else {
+                        card.classList.remove('show');
+                    }
+                }
+            });
+        }
+
+        // --- SLIDER LOGIC (Same as before) ---
+        const reviewsData = [
+            { name: "Rani Ramadhanti", text: "Baru pertama kali coba kembang tahu karna penasaran... Rasanya enak paling suka yg ori kuah jahe.", stars: 5, img: "https://ui-avatars.com/api/?name=Rani+R&background=random" },
+            { name: "Cipta Widya", text: "Sari Kacang ijonya enak, pesen kembang tahu juga buat dibawa pulang. QRIS nya udah bisa dipakaiii.", stars: 5, img: "https://ui-avatars.com/api/?name=Cipta+W&background=random" },
+            { name: "Muthia Shifa", text: "Akhirnya beli juga dan ini udh pembelianku yg ke-2. Choipannya enakkkk. Sausnya juga gurih.", stars: 5, img: "https://ui-avatars.com/api/?name=Muthia+S&background=random" },
+            { name: "Satria Pamungkas", text: "Buat yang suka kembang tahu, tempat ini bisa jadi pilihan menarik. Worth it buat dicoba!", stars: 4, img: "https://ui-avatars.com/api/?name=Satria+P&background=random" },
+            { name: "Budi Santoso", text: "Puding Tiramisunya gila sih, wajib coba!", stars: 5, img: "https://ui-avatars.com/api/?name=Budi+S&background=random" },
+            { name: "Siti Aminah", text: "Susu kedelainya seger banget, gak bikin enek.", stars: 5, img: "https://ui-avatars.com/api/?name=Siti+A&background=random" }
+        ];
+
+        const slidesWrapper = document.getElementById('slidesWrapper');
+        let currentSlide = 0;
+
+        reviewsData.forEach(review => {
+            const starString = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+            const slideHTML = `
+                <div class="slide">
+                    <div class="review-card-modern">
+                        <i class="fas fa-quote-left" style="font-size: 3rem; color: #ddd; position: absolute; top: 20px; left: 30px;"></i>
+                        <p class="review-content">"${review.text}"</p>
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">
+                                <img src="${review.img}" alt="${review.name}">
+                            </div>
+                            <div>
+                                <div class="reviewer-name" style="font-weight:700; color:var(--primary);">${review.name}</div>
+                                <div class="review-stars" style="color:var(--gold);">${starString}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            slidesWrapper.innerHTML += slideHTML;
+        });
+
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function updateSlider() {
+            slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        document.querySelector('.next-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        });
+
+        document.querySelector('.prev-btn').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        });
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
+    </script>
+</body>
+</html>
